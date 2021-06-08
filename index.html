@@ -1,0 +1,750 @@
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Web server</title>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="d-flex flex-column flex-lg-row align-items-center">
+                <div class="logo">
+                    <img src="img/logo.svg" alt="logo" class="img-fluid">
+                </div>
+                <div class="line"></div>
+                <div class="menu-right">
+                    <ul>
+                        <li>Laboratorní regál Hostivař</li>
+                        <li id='time'></li>
+                        <li id="date">03.05.2021</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="quick-info">
+        <div class="container">
+            <div class="main-box">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-xl-4">
+                        <p>teplota: <span class="param">:="Tepl_prostor".Current_value</span></p>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <p>pH: <span class="param">:="DBHNojeni".PH:"</span></p>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-5">
+                        <p>výška hladiny: <span class="param">:="Hladina_MN":"</span></p>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-4">
+                        <p>vlhkost: <span class="param">:="Rh_prostor".Current_value</span></p>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <p>EC: <span class="param">:="DBHNojeni".Konduktivita:"</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login">
+        <div class="container">
+            <div class="login-box">
+                <div>
+                    <p>přihlášení:</p>
+                </div>
+                <form>
+                    <input type="text" placeholder="jméno">
+                    <input type="text" placeholder="heslo">
+                    <a href="#"><img src="img/form-submit.svg" alt="submit" class="img-fluid"></a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="main-box box-closed">
+                        <div class="box-head">
+                            <p class="box-headline">světla</p>
+                            <div class="box-head-hidden">
+                                <form class="controls">
+                                    <div class="switch-box">
+                                        <p>auto</p>
+                                        <label class="switch">
+                                            <input type="checkbox" class="toggle-open" checked="checked">
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <p>man</p>
+                                    </div>
+                                    <div class="switch-box ml-4 toggle-open-man">
+                                        <p>On</p>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <p>Off</p>
+                                    </div>
+
+                                    <div class="auto-box toggle-open-auto">
+                                        <p>auto - ON:</p>
+                                        <input type="number" value="10" max="24" class="green-input">
+                                        <p>h</p>
+                                    </div>
+                                    <div class="auto-box toggle-open-auto">
+                                        <p>auto - OFF:</p>
+                                        <input type="number" value="16" max="24" class="green-input">
+                                        <p>h</p>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="box-content">
+                            <div class="box-container">
+                                <div class="row">
+                                    <div class="col-12 col-lg-2 d-none d-lg-block numbers">
+                                        <div class="sliders-number">
+                                            <p>1</p>
+                                        </div>
+                                        <div class="sliders-number">
+                                            <p>2</p>
+                                        </div>
+                                        <div class="sliders-number">
+                                            <p>3</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-5">
+                                        <div class="sliders-section">
+                                            <p class="section-title">sekce AB</p>
+                                            <div class="sliders-box">
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">modrá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" name='' value=':="DaliNastaveni".Prevodniky[19].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" name='' value=':="DaliNastaveni".Prevodniky[19].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">bílá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[6].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[6].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[20].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[20].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">tmavě červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[18].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[18].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col col-gap">
+                                                    <form>
+                                                        <p class="slider-text">intenzita</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value="50" class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value="50">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="sliders-box">
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">modrá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[15].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[15].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">bílá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[21].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[21].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[22].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[22].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">tmavě červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[13].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[13].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col col-gap">
+                                                    <form>
+                                                        <p class="slider-text">intenzita</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value="50" class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value="50">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="sliders-box">
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">modrá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[5].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[5].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">bílá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[17].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[17].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[23].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[23].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">tmavě červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[8].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[8].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col col-gap">
+                                                    <form>
+                                                        <p class="slider-text">intenzita</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value="50" class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value="50">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-5">
+                                        <div class="sliders-section ml-lg-auto">
+                                            <p class="section-title">sekce CD</p>
+                                            <div class="sliders-box">
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">modrá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[0].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[0].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">bílá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[9].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[9].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[4].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[4].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">tmavě červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[16].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[16].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col col-gap">
+                                                    <form>
+                                                        <p class="slider-text">intenzita</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value="50" class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value="50">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="sliders-box">
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">modrá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[7].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[7].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">bílá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[2].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[2].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[3].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[3].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">tmavě červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[10].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[10].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col col-gap">
+                                                    <form>
+                                                        <p class="slider-text">intenzita</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value="50" class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value="50">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="sliders-box">
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">modrá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[12].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[12].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">bílá</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[11].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[11].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[1].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[1].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col">
+                                                    <form>
+                                                        <p class="slider-text">tmavě červená</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value=':="DaliNastaveni".Prevodniky[14].Scena:' class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value=':="DaliNastaveni".Prevodniky[14].Scena:'>
+                                                    </form>
+                                                </div>
+                                                <div class="sliders-col col-gap">
+                                                    <form>
+                                                        <p class="slider-text">intenzita</p>
+                                                        <div class="range-box">
+                                                            <input type="range" max="255" value="50" class="range-slider">
+                                                        </div>
+                                                        <input type="number" class="green-input range-input" value="50">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="main-box box-closedt box-hnojeni">
+                        <div class="box-head">
+                            <p class="box-headline">hnojení</p>
+                            <div class="line"></div>
+                        </div>
+                        <div class="box-content">
+                            <div class="box-container">
+                                <form class="controls">
+                                    <div class="auto-box">
+                                        <p>EC</p>
+                                        <input type="number" value="10" max="24" class="green-input">
+                                        <p>mS/cm2</p>
+                                    </div>
+                                    <div class="auto-box">
+                                        <p>pH</p>
+                                        <input type="number" value="16" max="24" value=':="DBHNojeni".PH:"' class="green-input">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="main-box box-closed">
+                        <div class="box-head">
+                            <p class="box-headline">zalévání</p>
+                            <div class="line"></div>
+                        </div>
+                        <div class="box-content">
+                            <div class="box-container">
+                                <div class="switches-section">
+                                    <div class="row">
+                                        <div class="col-6 col-lg-2 d-none d-lg-block">
+                                            <p class="zalevani">ovládání napouštěcího ventilu</p>
+                                        </div>
+                                        <div class="col-6 col-lg-2">
+                                            <p class="section-title">sekce A</p>
+                                            <form>
+                                                <div class="switches-row">
+                                                    <div class="switch-box">
+                                                        <p>auto</p>
+                                                        <label class="switch">
+                                                            <input type="checkbox" class="toggle-open">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <p>man</p>
+                                                    </div>
+                                                    <div class="switch-box toggle-open-man">
+                                                        <p>On</p>
+                                                        <label class="switch">
+                                                            <input type="checkbox">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <p>Off</p>
+                                                    </div>
+                
+                                                    <div class="input-box toggle-open-auto">
+                                                        <input type="time"  value="10" max="24" class="green-input">
+                                                    </div>
+                                                </div>    
+                                            </form>
+                                        </div>
+                                        <div class="col-6 col-lg-2">
+                                            <p class="section-title">sekce B</p>
+                                            <form>
+                                                <div class="switches-row">
+                                                    <div class="switch-box">
+                                                        <p>auto</p>
+                                                        <label class="switch">
+                                                            <input type="checkbox" class="toggle-open">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <p>man</p>
+                                                    </div>
+                                                    <div class="switch-box toggle-open-man">
+                                                        <p>On</p>
+                                                        <label class="switch">
+                                                            <input type="checkbox">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <p>Off</p>
+                                                    </div>
+                
+                                                    <div class="input-box toggle-open-auto">
+                                                        <input type="time" value="10" max="24" class="green-input">
+                                                    </div>
+                                                </div>         
+                                            </form>
+                                        </div>
+                                        <div class="col-6 col-lg-2">
+                                            <p class="section-title">sekce C</p>
+                                            <form>
+                                                <div class="switches-row">
+                                                    <div class="switch-box">
+                                                        <p>auto</p>
+                                                        <label class="switch">
+                                                            <input type="checkbox" class="toggle-open">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <p>man</p>
+                                                    </div>
+                                                    <div class="switch-box toggle-open-man">
+                                                        <p>On</p>
+                                                        <label class="switch">
+                                                            <input type="checkbox">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <p>Off</p>
+                                                    </div>
+                
+                                                    <div class="input-box toggle-open-auto">
+                                                        <input type="time" value="10" max="24" class="green-input">
+                                                    </div>
+                                                </div>     
+                                            </form>
+                                        </div>
+                                        <div class="col-6 col-lg-2">
+                                            <p class="section-title">sekce D</p>
+                                            <form>
+                                                <div class="switches-row">
+                                                    <div class="switch-box">
+                                                        <p>auto</p>
+                                                        <label class="switch">
+                                                            <input type="checkbox" class="toggle-open">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <p>man</p>
+                                                    </div>
+                                                    <div class="switch-box toggle-open-man">
+                                                        <p>On</p>
+                                                        <label class="switch">
+                                                            <input type="checkbox">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <p>Off</p>
+                                                    </div>
+                
+                                                    <div class="input-box toggle-open-auto">
+                                                        <input type="time" value="10" max="24" class="green-input">
+                                                    </div>
+                                                </div>       
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="main-box box-closed box-dmychadlo">
+                        <div class="box-head">
+                            <p class="box-headline">dmychadlo</p>
+                            <div class="box-head-hidden">
+                                <form class="controls">
+                                    <div class="switch-box">
+                                        <p>auto</p>
+                                        <label class="switch">
+                                            <input type="checkbox" class="toggle-open">
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <p>man</p>
+                                    </div>
+                                    <div class="switch-box ml-4 toggle-open-man">
+                                        <p>On</p>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <p>Off</p>
+                                    </div>
+
+                                    <div class="auto-box toggle-open-auto">
+                                        <p>auto - ON:</p>
+                                        <input type="number" value="10" max="24" class="green-input">
+                                        <p>h</p>
+                                    </div>
+                                    <div class="auto-box toggle-open-auto">
+                                        <p>auto - OFF:</p>
+                                        <input type="number" value="16" max="24" class="green-input">
+                                        <p>h</p>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="box-content">
+                            <div class="box-container">
+                                <div class="switches-section">
+                                    <form>
+                                        <div class="switches-row">
+                                            <div class="switch-box">
+                                                <p>auto</p>
+                                                <label class="switch">
+                                                    <input type="checkbox" class="toggle-open">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <p>man</p>
+                                            </div>
+                                            <div class="switch-box ml-4 toggle-open-man">
+                                                <p>On</p>
+                                                <label class="switch">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <p>Off</p>
+                                            </div>
+        
+                                            <div class="auto-box toggle-open-auto">
+                                                <p>auto - ON:</p>
+                                                <input type="number" value="10" max="24" class="green-input">
+                                                <p>h</p>
+                                            </div>
+                                            <div class="auto-box toggle-open-auto">
+                                                <p>auto - OFF:</p>
+                                                <input type="number" value="16" max="24" class="green-input">
+                                                <p>h</p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="main-box box-closed box-dmychadlo">
+                        <div class="box-head">
+                            <p class="box-headline">ventilátory</p>
+                            <div class="box-head-hidden">
+                                <form class="controls">
+                                    <div class="switch-box">
+                                        <p>auto</p>
+                                        <label class="switch">
+                                            <input type="checkbox" class="toggle-open">
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <p>man</p>
+                                    </div>
+                                    <div class="switch-box ml-4 toggle-open-man">
+                                        <p>On</p>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <p>Off</p>
+                                    </div>
+
+                                    <div class="auto-box toggle-open-auto">
+                                        <p>auto - ON:</p>
+                                        <input type="number" value="10" max="24" class="green-input">
+                                        <p>h</p>
+                                    </div>
+                                    <div class="auto-box toggle-open-auto">
+                                        <p>auto - OFF:</p>
+                                        <input type="number" value="16" max="24" class="green-input">
+                                        <p>h</p>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="box-content">
+                            <div class="box-container">
+                                <div class="switches-section">
+                                    <form>
+                                        <div class="switches-row">
+                                            <div class="switch-box">
+                                                <p>auto</p>
+                                                <label class="switch">
+                                                    <input type="checkbox" class="toggle-open">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <p>man</p>
+                                            </div>
+                                            <div class="switch-box ml-4 toggle-open-man">
+                                                <p>On</p>
+                                                <label class="switch">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <p>Off</p>
+                                            </div>
+        
+                                            <div class="auto-box toggle-open-auto">
+                                                <p>auto - ON:</p>
+                                                <input type="number" value="10" max="24" class="green-input">
+                                                <p>h</p>
+                                            </div>
+                                            <div class="auto-box toggle-open-auto">
+                                                <p>auto - OFF:</p>
+                                                <input type="number" value="16" max="24" class="green-input">
+                                                <p>h</p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="main-box box-closed">
+                        <div class="box-head">
+                            <p class="box-headline">míchadlo</p> <div class="box-head-hidden">
+                                <form class="controls">
+                                    <div class="auto-box mr-0">
+                                        <p>on</p>
+                                        <label class="switch">
+                                            <input type="checkbox" >
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <p>off</p>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="box-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/javascript.js"></script>
+</body>
+</html>
